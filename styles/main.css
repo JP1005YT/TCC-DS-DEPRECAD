@@ -13,9 +13,6 @@ font-family: 'Roboto', sans-serif; */
 
 body{
     position:relative;
-    /* display: flex;
-    align-items: center;
-    flex-direction: column; */
     overflow-x: hidden;
     width: 100vw;
     height: 300vw;
@@ -34,26 +31,33 @@ body{
     position: sticky;
     display: flex;
     flex-direction: row;
-    border: 2px solid white;
+    border: 0.5px solid white;
     width: 100%;
     height: 75px;
 }
 
 .leftside{
+    background: purple;
     display: flex;
-    width: 600px;
+    width: 33%;
     height: 100%;
+    align-items: center;
+    padding-left: 10px;
 }
 
 .midside{
     display: flex;
-    width: 600px;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
     height: 100%;
 }
 
 .rightside{
     display: flex;
-    width: 600px;
+    justify-content: end;
+    align-items: center;
+    width: 33%;
     height: 100%;
 }
 
@@ -63,13 +67,30 @@ body{
     width: 100%;
     height: 100%;
     position: absolute;
-}
+} /*jp viado*/
+
 #menu{
     z-index: 1;
     top: 0;
     left: 0;
     position: sticky;
-    width: 10vw;
+    width: 0vw;
     height: 100vw;
     background: red;
+}
+
+.menu div div{
+    background: red;
+}
+
+#btnmenu{
+    display: flex;
+    border: 1px solid black;
+    width: 55px;
+    height: 55px;
+    border-radius: 50px;
+    font-size: 30px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
 }
