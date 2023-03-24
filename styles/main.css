@@ -2,7 +2,10 @@
 
 /* font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif; */
-
+:root{
+    --cor1:#fff;
+    --cor2:rgb(40, 170, 98);
+}
 /* Definições Basicas */
 *{
     padding: 0%;
@@ -16,7 +19,7 @@ body{
     overflow-x: hidden;
     width: 100vw;
     height: 300vw;
-    background: rgb(40, 170, 98);
+    background: var(--cor2);
 }
 
 .all{
@@ -27,22 +30,22 @@ body{
 }
 
 .menu{
+    background: var(--cor1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 15px black;
     z-index: 1;
     position: sticky;
     display: flex;
     flex-direction: row;
-    border: 0.5px solid white;
     width: 100%;
-    height: 75px;
+    height:10vh;
 }
 
 .leftside{
-    background: purple;
     display: flex;
     width: 33%;
     height: 100%;
     align-items: center;
-    padding-left: 10px;
 }
 
 .midside{
@@ -67,7 +70,7 @@ body{
     width: 100%;
     height: 100%;
     position: absolute;
-} /*jp viado*/
+}
 
 #menu{
     z-index: 1;
@@ -76,21 +79,103 @@ body{
     position: sticky;
     width: 0vw;
     height: 100vw;
-    background: red;
+    background: black;
 }
 
 .menu div div{
-    background: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 #btnmenu{
+    transition: 100ms;
+    margin: 0 20px 0 20px;
     display: flex;
     border: 1px solid black;
     width: 55px;
     height: 55px;
-    border-radius: 50px;
+    border-radius: 50%;
     font-size: 30px;
     background-color: white;
     justify-content: center;
     align-items: center;
+}
+#btnmenu:hover{
+    cursor: pointer;
+    box-shadow: 0 0 2.5px rgba(0, 0, 0, 0.5) inset;
+    font-size: 35px;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+}
+.main > div{
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 15px black;
+    border-radius: 25px;
+    width: 80%;
+    height: 60vh;
+    background: var(--cor1);
+}
+.main > div .left,.right{
+    transition: 100ms;
+    cursor: pointer;
+    z-index: 1;
+    position: relative;
+    padding: 0 2.5% 0 2.5%;
+    display: flex;
+    opacity: 20%;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.main > div .left:hover,.right:hover{
+    opacity: 100%;
+    font-size: 60px;
+    text-shadow: 0 0 5px black;
+} 
+
+.left:hover{
+    animation: anim_left 500ms infinite;
+}
+.right:hover{
+    animation: anim_right 500ms infinite;
+}
+@keyframes anim_left {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(-20px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+@keyframes anim_right {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(20px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
 }
