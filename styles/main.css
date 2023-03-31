@@ -13,7 +13,6 @@ font-family: 'Roboto', sans-serif; */
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
-
 body{
     position:relative;
     overflow-x: hidden;
@@ -21,14 +20,12 @@ body{
     height: 300vw;
     background: var(--cor2);
 }
-
 .all{
     z-index: 0;
     width: 100vw;
     height: 100%;
     position: static;
 }
-
 .menu{
     background: var(--cor1);
     backdrop-filter: blur(5px);
@@ -40,55 +37,6 @@ body{
     width: 100%;
     height:10vh;
 }
-
-.leftside{
-    display: flex;
-    width: 33%;
-    height: 100%;
-    align-items: center;
-}
-
-.midside{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 33%;
-    height: 100%;
-}
-
-.rightside{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    width: 33%;
-    height: 100%;
-}
-
-/* Menu Lateral */
-#boxmenu{
-    top: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-
-#menu{
-    z-index: 1;
-    top: 0;
-    left: 0;
-    position: sticky;
-    width: 0vw;
-    height: 100vw;
-    background: black;
-}
-
-.menu div div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
 #btnmenu{
     transition: 100ms;
     margin: 0 20px 0 20px;
@@ -107,6 +55,91 @@ body{
     box-shadow: 0 0 2.5px rgba(0, 0, 0, 0.5) inset;
     font-size: 35px;
 }
+.leftside{
+    display: flex;
+    width: 33%;
+    height: 100%;
+    align-items: center;
+}
+.leftside.ativo{
+    justify-content: flex-end;
+}
+.midside{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 100%;
+}
+.rightside{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 33%;
+    height: 100%;
+}
+/* Menu Lateral */
+#boxmenu{
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.men_lateral{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    position: sticky;
+    width: 0vw;
+    height: 100vh;
+    background: white;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    animation: menu_saida 300ms ease;
+}
+.men_lateral.ativo{
+    width: 27vw;
+    animation: menu_entra 300ms ease;
+}
+.menu div div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+@keyframes menu_entra {
+    0%{width: 0;}
+    100%{width: 27vw;}
+}
+@keyframes menu_saida {
+    0%{width: 27vw;}
+    100%{width: 0vw;}
+}
+.content-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+    background: rgb(224, 224, 224);
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.12);
+}
+.content-menu div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    border-radius: 25px;
+    width: 80%;
+    height: 10%;
+    font-size: 25px;
+    background: var(--cor2);
+}
+/* Corpo */
 .main{
     display: flex;
     justify-content: center;
@@ -144,13 +177,11 @@ body{
     height: 100%;
     background: #fff;
 }
-
 .main > div .left:hover,.right:hover{
     opacity: 100%;
     font-size: 60px;
     text-shadow: 0 0 5px black;
 } 
-
 .left:hover{
     animation: anim_left 500ms infinite;
 }

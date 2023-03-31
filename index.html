@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,19 +8,18 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./styles/main.css'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src='./scripts/main.js'></script>
 </head>
 <body>
     <header class="menu">
         <div class="leftside">
             <div>
-                <span id="btnmenu">
+                <span id="btnmenu" class="btn"onclick="troca_menu()">
                     <i class='bx bx-menu'></i>
                 </span>
             </div>
         </div>
             <div class="midside">
-                <div>LOGO</div>
+                <div>Logo</div>
             </div>
             <div class="rightside">
                 <div>
@@ -28,17 +28,40 @@
                     </span>
                 </div>
             </div>
-        </header>
-        <div class="main">
+    </header>
+    <div class="main">
             <div>
                 <div class="left"><i class='bx bxs-left-arrow'></i></div>
                 <div class="content"></div>
                 <div class="right"><i class='bx bxs-right-arrow' ></i></div>
             </div>
+    </div>
+    <div id="boxmenu">
+        <div id="menu" class="men_lateral">
+            <nav class="content-menu">
+                <div>
+                    <i class='bx bxl-meta'></i>
+                    <span>Doenças</span>
+                </div>
+                <div>
+                    <i class='bx bxl-meta'></i>
+                    <span>Alimentos</span>
+                </div>
+                <div>
+                    <i class='bx bxl-meta'></i>
+                    <span>Fitness</span>
+                </div>
+                <div>
+                    <i class='bx bxl-meta'></i>
+                    <span>Calculadora</span>
+                </div>
+                <div>
+                    <i class='bx bxl-meta'></i>
+                    <span>Social</span>
+                </div>
+            </nav>
         </div>
-        <div id="boxmenu">
-            <div id="menu">
-            </div>
-        </div>
+    </div>
+    <script src='./scripts/main.js'></script>
 </body>
 </html>
