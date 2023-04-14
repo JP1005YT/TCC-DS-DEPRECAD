@@ -6,6 +6,7 @@ font-family: 'Roboto', sans-serif; */
     --cor1:#fff;
     --cor2:rgb(40, 170, 98);
 }
+
 /* Definições Basicas */
 *{
     padding: 0%;
@@ -20,16 +21,11 @@ body{
     height: 300vw;
     background: var(--cor2);
 }
-.all{
-    z-index: 0;
-    width: 100vw;
-    height: 100%;
-    position: static;
-}
+/* Headers */
 .menu{
     background: var(--cor1);
     backdrop-filter: blur(5px);
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     z-index: 1;
     position: sticky;
     display: flex;
@@ -52,7 +48,7 @@ body{
 }
 #btnmenu:hover{
     cursor: pointer;
-    box-shadow: 0 0 2.5px rgba(0, 0, 0, 0.5) inset;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
     font-size: 35px;
 }
 .leftside{
@@ -99,9 +95,15 @@ body{
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
     animation: menu_saida 300ms ease;
 }
+.men_lateral .content-menu{
+    display: none;
+}
 .men_lateral.ativo{
     width: 27vw;
     animation: menu_entra 300ms ease;
+}
+.men_lateral.ativo .content-menu{
+    display: flex;
 }
 .menu div div{
     display: flex;
@@ -139,6 +141,13 @@ body{
     font-size: 25px;
     background: var(--cor2);
 }
+.content-menu div:hover{
+    cursor: pointer;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+.content-menu i{
+    font-size:40px;
+}
 /* Corpo */
 .main{
     display: flex;
@@ -148,18 +157,18 @@ body{
     height: 90vh;
     position: absolute;
 }
-.main > div{
+.main > .carrossel{
     overflow: hidden;
     position: relative;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 0 15px black;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
     border-radius: 25px;
     width: 80%;
     height: 60vh;
     background: var(--cor1);
 }
-.main > div .left,.right{
+.main > .carrossel .left,.right{
     transition: 100ms;
     cursor: pointer;
     z-index: 1;
@@ -177,7 +186,7 @@ body{
     height: 100%;
     background: #fff;
 }
-.main > div .left:hover,.right:hover{
+.main > .carrossel .left:hover,.right:hover{
     opacity: 100%;
     font-size: 60px;
     text-shadow: 0 0 5px black;
