@@ -15,3 +15,12 @@ function Troca_Pagina(e){
             break;
     }
 }
+function troca_main_screen(){
+    let pagina_principal = document.querySelector('.pagina_principal')
+    let body = document.querySelector('.any')
+    let menu_box = document.querySelector('.login_screen')
+    console.log(pagina_principal)
+    body.classList.toggle('login')
+    menu_box.classList.toggle('ativo')
+    pagina_principal.style.display = 'none'   
+}

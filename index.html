@@ -9,58 +9,65 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./styles/main.css'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
-    <header class="menu">
-        <div class="leftside">
-            <div>
-                <span id="btnmenu" class="btn"onclick="troca_menu()">
-                    <i class='bx bx-menu'></i>
-                </span>
-            </div>
-        </div>
-            <div class="midside">
-                <div>Logo </div>
-            </div>
-            <div class="rightside">
+<body class="any">
+    <div class="pagina_principal">
+        <header class="menu">
+            <div class="leftside">
                 <div>
-                    <span id="btnmenu">
-                        <i class='bx bxs-user'></i>
+                    <span id="btnmenu" class="btn"onclick="troca_menu()">
+                        <i class='bx bx-menu'></i>
                     </span>
                 </div>
             </div>
-    </header>
-    <div class="main">
-            <div class="carrossel">
-                <div class="left"><i class='bx bxs-left-arrow'></i></div>
-                <div class="content"></div>
-                <div class="right"><i class='bx bxs-right-arrow' ></i></div>
-            </div>
-    </div>
-    <div id="boxmenu">
-        <div id="menu" class="men_lateral">
-            <nav class="content-menu">
-                <div>
-                    <i class='bx bxs-capsule'></i>
-                    <span>Doenças</span>
+                <div class="midside">
+                    <div>Logo </div>
                 </div>
-                <div>
-                    <i class='bx bx-bowl-hot'></i>
-                    <span>Alimentos</span>
+                <div class="rightside">
+                    <div onclick="troca_main_screen()">
+                        <span id="btnmenu">
+                            <i class='bx bxs-user'></i>
+                        </span>
+                    </div>
                 </div>
-                <div>
-                    <i class='bx bx-dumbbell'></i> 
-                    <span>Fitness</span>
+        </header>
+        <div class="main">
+                <div class="carrossel">
+                    <div class="left"><i class='bx bxs-left-arrow'></i></div>
+                    <div class="content"></div>
+                    <div class="right"><i class='bx bxs-right-arrow' ></i></div>
                 </div>
-                <div>
-                    <i class='bx bx-math' ></i>
-                    <span>Calculadora</span>
-                </div>
-                <div onclick="Troca_Pagina()">
-                    <i class='bx bxs-group'></i>
-                    <span>Social</span>
-                </div>
-            </nav>
         </div>
+        <div id="boxmenu">
+            <div id="menu" class="men_lateral">
+                <nav class="content-menu">
+                    <div>
+                        <i class='bx bxs-capsule'></i>
+                        <span>Doenças</span>
+                    </div>
+                    <div>
+                        <i class='bx bx-bowl-hot'></i>
+                        <span>Alimentos</span>
+                    </div>
+                    <div>
+                        <i class='bx bx-dumbbell'></i> 
+                        <span>Fitness</span>
+                    </div>
+                    <div>
+                        <i class='bx bx-math' ></i>
+                        <span>Calculadora</span>
+                    </div>
+                    <div onclick="Troca_Pagina()">
+                        <i class='bx bxs-group'></i>
+                        <span>Social</span>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="login_screen">
+        <span>
+            <h1>Login</h1>
+        </span>
     </div>
     <script src='./scripts/main.js'></script>
 </body>

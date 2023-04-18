@@ -219,3 +219,12 @@ body{
         transform: translateX(0px);
     }
 }
+.login_screen{
+    display: none;
+}
+.login_screen.ativo{
+    display: flex;
+}
+.any.login{
+    height: 100vh;
+}
