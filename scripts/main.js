@@ -22,5 +22,9 @@ function troca_main_screen(){
     console.log(pagina_principal)
     body.classList.toggle('login')
     menu_box.classList.toggle('ativo')
-    pagina_principal.style.display = 'none'   
+    if(pagina_principal.style.display == 'none'){
+        pagina_principal.style.display = 'flex'
+    }else{
+        pagina_principal.style.display =  'none'
+    }
 }
