@@ -66,10 +66,36 @@
     </div>
     <div class="login_screen">
         <i class='bx bx-arrow-back' onclick="troca_main_screen()"></i>
-        <span>
-            <h2>Login</h2>
-            <h2>Cadastrar</h2>
+        <span onclick="troca_cor_log()" id="display">
+            <div>
+                <h2 class="ativo">Login</h2>
+                <h2>Cadastrar</h2>
+            </div>
         </span>
+        <section>
+            <div class="login_box">
+
+            </div>
+            <div class="sign_box">
+                <input id="nome_s" placeholder="Nome Completo">
+                <input id="user_s" placeholder="Nome de Usuario">
+                <input id="email_s" placeholder="E-mail">
+                <input id="senha_s" placeholder="Senha">
+                <input id="senhac_s" placeholder="Confirmar senha">
+                <input id="senhac_s" type="date">
+                <label>
+                    <input type="radio" value="0" name="opc">Masculino
+                </label>
+                <label>
+                    <input type="radio" value="1" name="opc">Feminino
+                </label>
+                <label>
+                    <input type="radio" value="2" name="opc">Indefinido
+                </label>
+                <input type="text" placeholder="Pais">
+                <input type="file" accept=".png, .jpg, .jpeg" value="Teste">
+            </div>
+        </section>
     </div>
     <script src='./scripts/main.js'></script>
 </body>
