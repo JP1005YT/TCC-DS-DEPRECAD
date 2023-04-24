@@ -301,5 +301,26 @@ body{
     width: 30%;
     height: 90%;
     background: white;
-    font-size: 25px;
+    font-size: 20px;
+    border-radius: 25px;
+}
+.sign_box nav{
+    width: 90%;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+}
+.sign_box nav label{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    background: #c3c3c3;
+    border-radius: 15px;
+}
+.login_screen.ativo section div input{
+    width: 90%;
+    font-size: 20px;
+    padding: 10px;
 }
