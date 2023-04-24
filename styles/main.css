@@ -271,6 +271,7 @@ body{
     height: 70%;
     background: linear-gradient(90deg,#C33764,#1D2671);
     border-radius: 25px;
+    padding: 20px;
 }
 .login_screen.ativo > span div h2{
     display: flex;
@@ -294,16 +295,34 @@ body{
     height: 85%;
 }
 .sign_box{
+    display: none;
+}
+.login_box{
+    display: none;
+}
+.sign_box.ativo {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
     width: 30%;
-    height: 90%;
+    height: 100%;
     background: white;
     font-size: 20px;
     border-radius: 25px;
 }
+.login_box.ativo{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    background: white;
+    font-size: 20px;
+    border-radius: 25px;
+}
+
 .sign_box nav{
     width: 90%;
     display: flex;
@@ -320,7 +339,10 @@ body{
     border-radius: 15px;
 }
 .login_screen.ativo section div input{
-    width: 90%;
+    width: 80%;
     font-size: 20px;
     padding: 10px;
+}
+.sign_box div{
+    display: flex;
 }

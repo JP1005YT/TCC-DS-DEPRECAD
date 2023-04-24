@@ -35,8 +35,11 @@ function troca_main_screen(){
 
 let loginoucadastro = 0
 function troca_cor_log(){
-    let display = document.getElementById('display')
-    let kapa = display.querySelectorAll('h2')
+    let kapa = document.getElementById('display').querySelectorAll('h2')
+    let sign_s = document.getElementById('sign')
+    let login_s = document.getElementById('login')
+    sign_s.classList.toggle('ativo')
+    login_s.classList.toggle('ativo')
     kapa[0].classList.toggle('ativo')
     kapa[1].classList.toggle('ativo')
 }
