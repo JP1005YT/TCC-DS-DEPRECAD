@@ -1,17 +1,18 @@
+// Variaveis Globais
+let u_name,u_img
+
 // Funções de Front-End 
 // ex:Troca de cores e paginas e objetos
 
 function l(a){
     console.log(`${a}`)
 }
-
 function troca_menu(){
     let menu = document.querySelector('#menu')
     let leftside = document.querySelector('.leftside')
     menu.classList.toggle('ativo')
     leftside.classList.toggle('ativo')
 }
-
 function Troca_Pagina(e){
     switch (e) {
         case "src":
@@ -35,7 +36,6 @@ function troca_main_screen(){
         pagina_principal.style.display =  'none'
     }
 }
-
 let loginoucadastro = 0
 function troca_cor_log(){
     let kapa = document.getElementById('display').querySelectorAll('h2')
@@ -106,4 +106,14 @@ async function Pull(json,opc){
         body: JSON.stringify(json)
     });
     resposta = await dados.json();
+    if(resposta.nome){
+        u_name = resposta.nome
+    }
+}
+async function Testando(){
+    const dados = await fetch('./scripts/test.php',{
+        method: "POST",
+        body: ""
+    });
+    resposta = await dados.text()
 }

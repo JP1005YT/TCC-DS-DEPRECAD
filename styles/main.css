@@ -271,7 +271,6 @@ body{
     height: 70%;
     background: linear-gradient(90deg,#C33764,#1D2671);
     border-radius: 25px;
-    padding: 20px;
 }
 .login_screen.ativo > span div h2{
     display: flex;
