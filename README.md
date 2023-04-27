@@ -12,8 +12,8 @@ Home,
     A --> C(Fitness)
     A --> D(Alimentação)
     D --> E(Calculadora de Calorias)
-    A --> F(Perfil)
     C --> E
+    A --> F(Perfil)
     A --> G(Social)
 ```
 ## A fazer
