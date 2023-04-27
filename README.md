@@ -1,11 +1,25 @@
-# TCC-DS
-# ==========================
+# Trabalho de Conclusão de Curso
 Home,
     Doenças,
     Fitness,
     Alimentação,
         Calculadora de cal,
     Perfil,
-    Chat,
-
-https://prod.liveshare.vsengsaas.visualstudio.com/join?710BAA4921E860285A7A8D3E60BA36167FFC
+    Social,
+```mermaid
+    graph LR
+    A[Home] ----> B(Doenças)
+    A --> C(Fitness)
+    A --> D(Alimentação)
+    D --> E(Calculadora de Calorias)
+    A --> F(Perfil)
+    A --> G(Social)
+```
+## A fazer
+    > **IMPORTANTE** Adicionar Peso,Altura e Foto_de_Perfil no banco
+    > Checagem de Usuario (Existente)
+    > Encripitar a Senha
+    > Login
+    > CRUD
+    > Perfil
+    > Home
