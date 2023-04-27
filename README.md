@@ -5,7 +5,7 @@ Home,
     Alimentação,
         Calculadora de cal,
     Perfil,
-    Social,
+    Sociale,
 ```mermaid
     graph LR
     A[Home] ----> B(Doenças)
