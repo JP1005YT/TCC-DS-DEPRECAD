@@ -23,17 +23,25 @@ function Troca_Pagina(e){
             break;
     }
 }
-function troca_main_screen(){
-    let pagina_principal = document.querySelector('.home_screen')
+function troca_main_screen(local){
     let body = document.querySelector('.any')
-    let menu_box = document.querySelector('.login_screen')
+    let pagina_principal = document.querySelector('.home_screen')
+    let pagina_login = document.querySelector('.login_screen')
+    let pagina_perfil = document.querySelector('.login_perfil')
     console.log(pagina_principal)
     body.classList.toggle('login')
-    menu_box.classList.toggle('ativo')
-    if(pagina_principal.style.display == 'none'){
-        pagina_principal.style.display = 'flex'
-    }else{
-        pagina_principal.style.display =  'none'
+    pagina_principal.style.display = 'none'
+    pagina_login.classList.value = 'login_screen'
+    switch (local) {
+        case 1:
+            pagina_login.classList.toggle('ativo')
+            break;
+        case 2:
+            pagina_perfil.classList.toggle('ativo')
+            break;
+        default:
+            pagina_principal.style.display = 'flex'
+            break;
     }
 }
 let loginoucadastro = 0
