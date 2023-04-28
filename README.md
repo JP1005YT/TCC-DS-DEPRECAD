@@ -24,3 +24,6 @@ Home,
     > CRUD
     > Perfil
     > Home
+    
+$ git config --global user.email "godlolpro32@gmail.com"
+$ git config --global user.name "JP1005YT"
