@@ -95,6 +95,8 @@ function Processar_Cadastro(){
             "endereco" : endereco_s
         }
         Pull(JSON,"Cadastrar");
+        nome_s = user_s = email_s = senha_s = sexo_val = senhac_s = date_s = endereco_s = ''
+        troca_main_screen()
       } else {  
         alert('Preencha TODOS os campos')
       }
@@ -109,11 +111,4 @@ async function Pull(json,opc){
     if(resposta.nome){
         u_name = resposta.nome
     }
-}
-async function Testando(){
-    const dados = await fetch('./scripts/test.php',{
-        method: "POST",
-        body: ""
-    });
-    resposta = await dados.text()
 }
