@@ -24,7 +24,7 @@ function Troca_Pagina(e){
     }
 }
 function troca_main_screen(){
-    let pagina_principal = document.querySelector('.pagina_principal')
+    let pagina_principal = document.querySelector('.home_screen')
     let body = document.querySelector('.any')
     let menu_box = document.querySelector('.login_screen')
     console.log(pagina_principal)
