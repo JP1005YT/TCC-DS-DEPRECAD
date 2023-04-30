@@ -27,17 +27,18 @@ function troca_main_screen(local){
     let body = document.querySelector('.any')
     let pagina_principal = document.querySelector('.home_screen')
     let pagina_login = document.querySelector('.login_screen')
-    let pagina_perfil = document.querySelector('.login_perfil')
+    let pagina_perfil = document.querySelector('.profile_screen')
     console.log(pagina_principal)
     body.classList.toggle('login')
     pagina_principal.style.display = 'none'
     pagina_login.classList.value = 'login_screen'
     switch (local) {
         case 1:
-            pagina_login.classList.toggle('ativo')
-            break;
-        case 2:
-            pagina_perfil.classList.toggle('ativo')
+            if(u_name){
+                pagina_perfil.classList.toggle('ativo')
+            }else{
+                pagina_login.classList.toggle('ativo')
+            }
             break;
         default:
             pagina_principal.style.display = 'flex'
@@ -102,7 +103,7 @@ function Processar_Cadastro(){
             "sexo" : sexo_val,
             "endereco" : endereco_s
         }
-        Pull(JSON,"Cadastrar");
+        Query_Cadastrar(JSON);
         nome_s = user_s = email_s = senha_s = sexo_val = senhac_s = date_s = endereco_s = ''
         troca_main_screen()
       } else {  
@@ -110,13 +111,34 @@ function Processar_Cadastro(){
       }
       
 }
-async function Pull(json,opc){
-    const dados = await fetch('./scripts/server/pull.php',{
+function Processar_Login(){
+    let email_l = document.getElementById('email_l').value
+    let senha_l = document.getElementById('senha_l').value
+    if(email_l && senha_l){
+        let JSON = {
+            "email" : email_l,
+            "senha" : senha_l
+        }
+        Query_Logar(JSON)
+    }
+}
+async function Query_Cadastrar(json){
+    const dados = await fetch('./scripts/server/cadastrar.php',{
         method: "POST",
         body: JSON.stringify(json)
     });
     resposta = await dados.json();
     if(resposta.nome){
         u_name = resposta.nome
+    }
+}
+async function Query_Logar(json){
+    const dados = await fetch('./scripts/server/consultar.php',{
+        method: "POST",
+        body: JSON.stringify(json)
+    });
+    resposta = await dados.json();
+    if(resposta){
+        alert(`Bem-Vindo:${resposta.nome}`)
     }
 }
