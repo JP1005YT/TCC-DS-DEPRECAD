@@ -1,5 +1,5 @@
 // Variaveis Globais
-let u_name,u_img
+let u_infos
 
 // Funções de Front-End 
 // ex:Troca de cores e paginas e objetos
@@ -28,13 +28,12 @@ function troca_main_screen(local){
     let pagina_principal = document.querySelector('.home_screen')
     let pagina_login = document.querySelector('.login_screen')
     let pagina_perfil = document.querySelector('.profile_screen')
-    console.log(pagina_principal)
     body.classList.toggle('login')
     pagina_principal.style.display = 'none'
     pagina_login.classList.value = 'login_screen'
     switch (local) {
         case 1:
-            if(u_name){
+            if(u_infos){
                 pagina_perfil.classList.toggle('ativo')
             }else{
                 pagina_login.classList.toggle('ativo')
@@ -139,6 +138,9 @@ async function Query_Logar(json){
     });
     resposta = await dados.json();
     if(resposta){
+        u_infos = resposta
         alert(`Bem-Vindo:${resposta.nome}`)
+    }else{
+        alert('Senha ou Email Incorretos')
     }
 }
