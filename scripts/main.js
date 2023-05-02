@@ -152,10 +152,9 @@ async function Query_Alguem_Logado(json){
         body: JSON.stringify(json)
     });
     resposta = await dados.json();
-    if(resposta){
+    if(resposta.nome === "ERRO"){
+    }else{
         u_infos = resposta
         alert(`Bem-Vindo:${resposta.nome}`)
-    }else{
-        alert('algo deu errado')
     }
 }
