@@ -17,7 +17,8 @@ Home,
     A --> G(Social)
 ```
 ## A fazer
-    > **IMPORTANTE** Adicionar Peso,Altura e Foto_de_Perfil no banco
+    > **IMPORTANTE** Adicionar Peso,Altura no banco
+    > Foto_de_Perfil de cada usuario aparecer certo
     > Checagem de Usuario (Existente)
     > Login
     > CRUD
