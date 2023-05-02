@@ -31,6 +31,7 @@ function troca_main_screen(local){
     body.classList.toggle('login')
     pagina_principal.style.display = 'none'
     pagina_login.classList.value = 'login_screen'
+    pagina_perfil.classList.value = 'profile_screen'
     switch (local) {
         case 1:
             if(u_infos){
@@ -122,7 +123,7 @@ function Processar_Login(){
     }
 }
 async function Query_Cadastrar(json){
-    const dados = await fetch('./scripts/server/cadastrar.php',{
+    const dados = await fetch('./scripts/server/sign.php',{
         method: "POST",
         body: JSON.stringify(json)
     });
@@ -132,7 +133,21 @@ async function Query_Cadastrar(json){
     }
 }
 async function Query_Logar(json){
-    const dados = await fetch('./scripts/server/consultar.php',{
+    const dados = await fetch('./scripts/server/login.php',{
+        method: "POST",
+        body: JSON.stringify(json)
+    });
+    resposta = await dados.json();
+    if(resposta){
+        u_infos = resposta
+        alert(`Bem-Vindo:${resposta.nome}`)
+        troca_main_screen()
+    }else{
+        alert('Senha ou Email Incorretos')
+    }
+}
+async function Query_Alguem_Logado(json){
+    const dados = await fetch('./scripts/server/check_user.php',{
         method: "POST",
         body: JSON.stringify(json)
     });
@@ -141,6 +156,6 @@ async function Query_Logar(json){
         u_infos = resposta
         alert(`Bem-Vindo:${resposta.nome}`)
     }else{
-        alert('Senha ou Email Incorretos')
+        alert('algo deu errado')
     }
 }

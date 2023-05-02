@@ -93,7 +93,6 @@ body{
     height: 100vh;
     background: white;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-    animation: menu_saida 300ms ease;
 }
 .men_lateral .content-menu{
     display: none;
@@ -219,18 +218,9 @@ body{
         transform: translateX(0px);
     }
 }
+/* PAGINA DE LOGIN E CADASTRO */
 .login_screen{
     display: none;
-}
-.profile_screen{
-    display: none;
-}
-.profile_screen.ativo{
-    width: 100vw ;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
 }
 .login_screen.ativo{
     width: 100vw ;
@@ -358,4 +348,80 @@ body{
 }
 .sign_box div{
     display: flex;
+}
+/* PAGINA DE PERFIL */
+.profile_screen{
+    display: none;
+}
+.profile_screen.ativo{
+    width: 100vw ;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.profile_screen > i {
+    top: 0;
+    left: 0;
+    margin: 1%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.profile_screen.ativo > i:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px black inset;
+}
+.profile_screen.ativo > section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+    background: #fff;
+    height: 100%;
+}
+section .upper{
+    position: relative;
+    width: 90%;
+    height: 30%;
+    background: #ccc;
+}
+section .bottom{
+    width: 90%;
+    height: 70%;
+    border-left:5px solid #ccc ;
+    border-right: 5px solid #ccc;
+}
+section .profile_image{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(100px,50px);
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+section h1{
+    color: white;
+    width: 70%;
+    background: #5f5f5f;
+    padding: 1%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    position: absolute;
+    font-size: 35px;
+    left: 30%;
+    bottom:25px;
 }

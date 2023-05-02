@@ -19,7 +19,6 @@ Home,
 ## A fazer
     > **IMPORTANTE** Adicionar Peso,Altura e Foto_de_Perfil no banco
     > Checagem de Usuario (Existente)
-    > Fazer Manter o Login
     > Login
     > CRUD
     > Perfil
