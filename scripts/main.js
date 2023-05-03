@@ -138,12 +138,12 @@ async function Query_Logar(json){
         body: JSON.stringify(json)
     });
     resposta = await dados.json();
-    if(resposta){
+    if(resposta.nome === "ERRO"){
+        alert('Senha ou Email Incorretos')
+    }else{
         u_infos = resposta
         alert(`Bem-Vindo:${resposta.nome}`)
         troca_main_screen()
-    }else{
-        alert('Senha ou Email Incorretos')
     }
 }
 async function Query_Alguem_Logado(json){

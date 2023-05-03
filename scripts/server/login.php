@@ -23,4 +23,6 @@ if(password_verify($salto_pass,$linha['user_senha'])){
         "dtendereco": "'.$_SESSION['user']['user_endereco'].'"
     }';
 
+}else {
+    echo '{"nome": "ERRO"}';
 }
