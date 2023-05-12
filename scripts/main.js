@@ -1,7 +1,7 @@
 // Variaveis Globais
 let u_infos
 
-// Funções de Front-End 
+// Funções de Front-End
 // ex:Troca de cores e paginas e objetos
 
 function l(a){
@@ -76,6 +76,10 @@ function Checa_Senha(key){
     }
     
 }
+function ConstruirProfile(){
+    let user_profile= document.querySelector("#screen_username")
+    user_profile.innerHTML = u_infos['nome']
+}
 // Funções de Back-End
 // Ex: Processamento de dados e encaminhamento para o banco
 function Processar_Cadastro(){
@@ -104,7 +108,7 @@ function Processar_Cadastro(){
             "endereco" : endereco_s
         }
         Query_Cadastrar(JSON);
-        nome_s = user_s = email_s = senha_s = sexo_val = senhac_s = date_s = endereco_s = ''
+        
         troca_main_screen()
       } else {  
         alert('Preencha TODOS os campos')
@@ -121,6 +125,8 @@ function Processar_Login(){
         }
         Query_Logar(JSON)
     }
+    document.getElementById('email_l').value = ""
+    document.getElementById('senha_l').value = ""
 }
 async function Query_Cadastrar(json){
     const dados = await fetch('./scripts/server/sign.php',{
@@ -140,6 +146,7 @@ async function Query_Logar(json){
     resposta = await dados.json();
     if(resposta.nome === "ERRO"){
         alert('Senha ou Email Incorretos')
+
     }else{
         u_infos = resposta
         alert(`Bem-Vindo:${resposta.nome}`)
@@ -156,5 +163,17 @@ async function Query_Alguem_Logado(json){
     }else{
         u_infos = resposta
         alert(`Bem-Vindo:${resposta.nome}`)
+        ConstruirProfile()
     }
 }
+async function enviarArquivo() {
+    const arquivo = document.querySelector('input[type="file"]').files[0];
+    const formData = new FormData();
+    formData.append('arquivo', arquivo);
+  
+    const response = await fetch('/upload', {
+        method: 'POST',
+        body: formData
+      });
+    
+  }
