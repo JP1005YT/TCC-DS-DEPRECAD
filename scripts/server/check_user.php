@@ -5,6 +5,7 @@ $dados = json_decode(file_get_contents('php://input'), true);
 
 if(isset($_SESSION['user'])){
     echo '{
+        "id": "'.$_SESSION['user']['user_id'].'",
         "nome": "'.$_SESSION['user']['user_name'].'",
         "nick": "'.$_SESSION['user']['user_nick'].'",
         "email": "'.$_SESSION['user']['user_email'].'",

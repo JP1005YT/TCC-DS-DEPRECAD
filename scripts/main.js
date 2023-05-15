@@ -3,9 +3,8 @@ let u_infos
 
 // Funções de Front-End
 // ex:Troca de cores e paginas e objetos
-
-function l(a){
-    console.log(`${a}`)
+function l(e){
+    console.log(e)
 }
 function troca_menu(){
     let menu = document.querySelector('#menu')
@@ -76,12 +75,26 @@ function Checa_Senha(key){
     }
     
 }
-function ConstruirProfile(){
+async function ConstruirProfile(){
     let user_profile= document.querySelector("#screen_username")
     user_profile.innerHTML = u_infos['nome']
+    nome_arquivo =  u_infos.id
+    const dados = await fetch('./scripts/server/extencao.php',{
+        method: "POST",
+    });
+    resposta = await dados.json()
+    if(resposta){
+        document.getElementById('img_profile').setAttribute('src',`./resources/profile_photos/${u_infos.id}.${resposta}?cache=${Math.random() * 10}`)
+    }else{
+        document.getElementById('img_profile').setAttribute('src',`./resources/profile_photos/default.png`)
+    }
+}
+function MudarImagem(){
+    document.querySelector('#troca_imagem_screen').classList.toggle('ativo') 
 }
 // Funções de Back-End
 // Ex: Processamento de dados e encaminhamento para o banco
+
 function Processar_Cadastro(){
     let nome_s = document.getElementById('nome_s').value
     let user_s = document.getElementById('user_s').value
@@ -90,7 +103,7 @@ function Processar_Cadastro(){
     let senhac_s = document.getElementById('senhac_s').value
     let date_s = document.getElementById('date_s').value
     let sexo_s = document.querySelectorAll('input[type="radio"][name="opc"]')
-    let endereco_s = document.getElementById('endereco_s').value
+    let endereco_s = document.getElementById('cep').value
     let sexo_val = ""
     sexo_s.forEach(radio => {
         if (radio.checked) {
@@ -108,7 +121,11 @@ function Processar_Cadastro(){
             "endereco" : endereco_s
         }
         Query_Cadastrar(JSON);
-        
+
+        document.querySelectorAll("input").forEach(element => {
+            element.value = ""
+        })
+
         troca_main_screen()
       } else {  
         alert('Preencha TODOS os campos')
@@ -137,6 +154,7 @@ async function Query_Cadastrar(json){
     if(resposta.nome){
         u_name = resposta.nome
     }
+    // arummar
 }
 async function Query_Logar(json){
     const dados = await fetch('./scripts/server/login.php',{
@@ -167,6 +185,8 @@ async function Query_Alguem_Logado(json){
     }
 }
 async function enviarArquivo() {
+    
+
     const arquivo = document.querySelector('input[type="file"]').files[0];
     const formData = new FormData();
     formData.append('arquivo', arquivo);
@@ -177,3 +197,106 @@ async function enviarArquivo() {
       });
     
   }
+async function Sair(){
+    const dados = await fetch('./scripts/server/sair.php',{
+        method: "POST",
+    });
+}
+//Funções da API de CEP
+function limpa_formulário_cep(){
+    //Limpa valores do formulário de cep.
+    document.getElementById('rua').value=("");
+    document.getElementById('bairro').value=("");
+    document.getElementById('cidade').value=("");
+    document.getElementById('uf').value=("");
+}
+
+function meu_callback(conteudo) {
+if (!("erro" in conteudo)) {
+    //Atualiza os campos com os valores.
+    document.getElementById('rua').value=(conteudo.logradouro);
+    document.getElementById('bairro').value=(conteudo.bairro);
+    document.getElementById('cidade').value=(conteudo.localidade);
+    document.getElementById('uf').value=(conteudo.uf);
+} //end if.
+else {
+    //CEP não Encontrado.
+    limpa_formulário_cep();
+    alert("CEP não encontrado.");
+}
+}
+
+function pesquisacep(valor) {
+
+//Nova variável "cep" somente com dígitos.
+var cep = valor.replace(/\D/g, '');
+
+//Verifica se campo cep possui valor informado.
+if (cep != "") {
+
+    //Expressão regular para validar o CEP.
+    var validacep = /^[0-9]{8}$/;
+
+    //Valida o formato do CEP.
+    if(validacep.test(cep)) {
+
+        //Preenche os campos com "..." enquanto consulta webservice.
+        document.getElementById('rua').value="...";
+        document.getElementById('bairro').value="...";
+        document.getElementById('cidade').value="...";
+        document.getElementById('uf').value="...";
+
+        //Cria um elemento javascript.
+        var script = document.createElement('script');
+
+        //Sincroniza com o callback.
+        script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+        //Insere script no documento e carrega o conteúdo.
+        document.body.appendChild(script);
+
+    } //end if.
+    else {
+        //cep é inválido.
+        limpa_formulário_cep();
+        alert("Formato de CEP inválido.");
+    }
+} //end if.
+else {
+    //cep sem valor, limpa formulário.
+    limpa_formulário_cep();
+}
+};
+
+//Guarda Imagem
+let element = document.getElementById('file')
+element.addEventListener("change", Query_Image);
+
+let nome_arquivo
+const allowedExtensions = ['jpg', 'png', 'gif'];
+
+async function Query_Image(event) {
+    const arquivo = event.target.files[0];
+    const formData = new FormData();
+
+    const fileExtension = arquivo.name.split('.').pop().toLowerCase();
+    if (!allowedExtensions.includes(fileExtension)) {
+        alert('Extensão de arquivo não permitida');
+        return;
+    }
+
+    formData.append('arquivo', arquivo);
+    formData.append('nome_arquivo', nome_arquivo);
+
+    const dados = await fetch('./scripts/server/guardarimagem.php', {
+        method: "POST",
+        body: formData
+    });
+
+    const resposta = await dados.json();
+    console.log(resposta);
+    if(resposta){
+        let img = document.querySelector('#img_profile')
+        img.setAttribute('src',`./resources/profile_photos/${nome_arquivo}.${resposta}?cache=${Math.random() * 10}`)
+    }
+}

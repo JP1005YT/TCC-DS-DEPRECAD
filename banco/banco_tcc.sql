@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Abr-2023 às 03:11
+-- Tempo de geração: 15-Maio-2023 às 02:37
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -43,7 +43,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`user_id`, `user_name`, `user_nick`, `user_email`, `user_senha`, `user_dtnasc`, `user_sexo`, `user_endereco`) VALUES
-(1, 'JOAO PEDRO GARCIA GIROTTO', 'JonasBrother', 'godlolpro32@gmail.com', '123123123', '2023-04-06', 'Masculino', 'Rua Rene antonio Sanches');
+(0, 'João Pedro Garcia Girotto', 'JP1005YT', 'godlolpro32@gmail.com', '$2y$10$CdEjjtawfs0ceevxBpprietgehAsbiFS6tb/d3QNqHBdkT0KeL2TK', '2006-01-04', 'Masculino', '19064145'),
+(7, 'ROBS', 'ROBS', 'ROBS', '$2y$10$ytFu.6NRB/ytL89KU.kfwut4jGoIX6MA5APvABEshmb6v0MGsKL2e', '2006-01-04', 'Masculino', '19064145'),
+(8, 'KAPA', 'KAPA', 'KAPA', '$2y$10$OBbhYSlWTct5AzGdUV0PAeTC3g1aG38Ykn1aNyiMYXw4wlMDVTYKC', '2006-01-04', 'Feminino', '19064145');
 
 --
 -- Índices para tabelas despejadas
@@ -63,7 +65,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -347,6 +347,7 @@ body{
     justify-content: space-around;
 }
 .sign_box nav label{
+    user-select: none;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -354,6 +355,10 @@ body{
     align-items: center;
     background: #c3c3c3;
     border-radius: 15px;
+}
+.sign_box nav label:hover{
+    cursor: pointer;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.471) inset;
 }
 .login_screen.ativo section div input{
     width: 80%;
@@ -367,6 +372,13 @@ body{
 }
 .sign_box div{
     display: flex;
+}
+.sign_box form{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 /* PAGINA DE PERFIL */
 .profile_screen{
@@ -432,6 +444,19 @@ body{
     border-radius: 50%;
     border: 1px solid black;
 }
+.profile_screen.ativo > section .profile_image:hover::after{
+    cursor: pointer;
+    backdrop-filter: blur(2px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: "";
+    background-image: url("../resources/assets/Edit.png");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: 30%;
+    text-shadow: 0 0 5px black;
+}
 .profile_screen.ativo > section h1{
     color: white;
     width: 70%;
@@ -443,4 +468,48 @@ body{
     font-size: 35px;
     left: 30%;
     bottom:25px;
+}
+.profile_screen.ativo .troca_imagem_screen{
+    display: none;
+}
+.profile_screen.ativo .troca_imagem_screen.ativo{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(2px);
+    box-shadow: 0 0 15px black inset;
+}
+.profile_screen.ativo .troca_imagem_screen.ativo div{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 300px;
+    background: #fff;
+    box-shadow: 0 0 5px black;
+    border-radius: 25px;
+}
+.profile_screen.ativo .troca_imagem_screen.ativo div i{
+    top: 0;
+    left: 0;
+    margin: 2%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+.profile_screen.ativo .troca_imagem_screen.ativo div i:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px black inset;
 }

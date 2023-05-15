@@ -15,6 +15,7 @@ if(password_verify($salto_pass,$linha['user_senha'])){
 
     $_SESSION['user'] = $linha;
     echo '{
+        "id": "'.$_SESSION['user']['user_id'].'",
         "nome": "'.$_SESSION['user']['user_name'].'",
         "nick": "'.$_SESSION['user']['user_nick'].'",
         "email": "'.$_SESSION['user']['user_email'].'",

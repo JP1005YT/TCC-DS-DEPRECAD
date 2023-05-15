@@ -5,7 +5,7 @@ Home,
     Alimentação,
         Calculadora de cal,
     Perfil,
-    Sociala,
+    Social,
 ```mermaid
     graph LR
     A[Home] ----> B(Doenças)
@@ -18,7 +18,7 @@ Home,
 ```
 ## A fazer
     > **IMPORTANTE** Adicionar Peso,Altura no banco
-    > Foto_de_Perfil de cada usuario aparecer certo
+    > Foto_de_Perfil DEBUG
     > Checagem de Usuario (Existente)
     > Login
     > CRUD
