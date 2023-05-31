@@ -18,7 +18,7 @@ body{
     position:relative;
     overflow-x: hidden;
     width: 100vw;
-    background: var(--cor2);
+    background: linear-gradient(var(--cor2),rgb(5, 155, 165));
 }
 .profile_screen{
     width: 100vw ;
@@ -148,4 +148,27 @@ body{
 .profile_screen .troca_imagem_screen.ativo div i:hover{
     cursor: pointer;
     box-shadow: 0 0 5px black inset;
+}
+.profile_screen > section .upper button{
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 15%;
+    padding: 2%;
+    margin: 1%;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.419);
+    background: linear-gradient(60deg ,var(--cor2),rgb(5, 155, 165));
+}
+.profile_screen > section .upper button:hover{
+    cursor: pointer;
+    text-shadow: 0 0 5px #fff;
+    background: linear-gradient(120deg ,var(--cor2),rgb(5, 155, 165));
 }

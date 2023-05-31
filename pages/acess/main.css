@@ -18,7 +18,7 @@ body{
     position:relative;
     overflow-x: hidden;
     width: 100vw;
-    background: var(--cor2);
+    background: linear-gradient(var(--cor2),rgb(5, 155, 165));
 }
 .login_screen{
     width: 100vw ;

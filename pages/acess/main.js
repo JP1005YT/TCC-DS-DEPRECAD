@@ -115,7 +115,7 @@ function Processar_Cadastro(){
             element.value = ""
         })
 
-        troca_main_screen()
+        volta()
       } else {  
         alert('Preencha TODOS os campos')
       }
@@ -156,8 +156,8 @@ async function Query_Logar(json){
 
     }else{
         u_infos = resposta
-        alert(`Bem-Vindo:${resposta.nome}`)
-        troca_main_screen()
+        alert(`${resposta.nome} Entrou`)
+        volta()
     }
 }
 function troca_cor_log(){

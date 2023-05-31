@@ -19,7 +19,7 @@ body{
     overflow-x: hidden;
     width: 100vw;
     height: 300vw;
-    background: var(--cor2);
+    background: linear-gradient(var(--cor2),rgb(5, 155, 165));
 }
 /* Headers */
 .menu{
@@ -45,6 +45,7 @@ body{
     background-color: white;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 #btnmenu:hover{
     cursor: pointer;

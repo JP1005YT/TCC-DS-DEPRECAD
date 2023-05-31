@@ -45,9 +45,16 @@ async function Query_Image(event) {
         let img = document.querySelector('#img_profile')
         img.setAttribute('src',`../../resources/profile_photos/${nome_arquivo}.${resposta}?cache=${Math.random() * 10}`)
     }
+    MudarImagem()
 }
 function MudarImagem(){
     document.querySelector('#troca_imagem_screen').classList.toggle('ativo') 
+}
+async function Sair(){
+    const dados = await fetch('../../server/sair.php',{
+        method: "POST",
+    });
+    volta()
 }
 async function ConstruirProfile(){
     esperar = await Query_Alguem_Logado()

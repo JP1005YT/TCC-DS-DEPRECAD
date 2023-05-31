@@ -5,7 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>FPH</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./styles/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body class="any" onload="Query_Alguem_Logado('')">
@@ -23,9 +23,10 @@
                 </div>
                 <div class="rightside">
                     <div>
-                        <span id="btnmenu"onclick="Troca_Pagina('acess')">
-                            <i class='bx bxs-user'></i>
-                        </span>
+                        <div id="btnmenu" onclick="Troca_Pagina('acess')">
+                            <i class='bx bxs-user' id="icon_remove"></i>
+                            <img class="img_profile" width="120%">
+                        </div>
                     </div>
                 </div>
         </header>
