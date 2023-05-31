@@ -1,6 +1,6 @@
 <?php
  session_start();
- $arquivos = scandir("../../resources/profile_photos/");
+ $arquivos = scandir("./../resources/profile_photos/");
  foreach($arquivos as $arquivo){
     if($arquivo != "." && $arquivo != ".."){
         $partes = explode(".",$arquivo);

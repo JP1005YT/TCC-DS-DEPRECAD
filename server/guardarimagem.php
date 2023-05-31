@@ -1,7 +1,7 @@
 <?php
 $arquivo = $_FILES['arquivo'];
 
-$pasta_destino = "../../resources/profile_photos/";
+$pasta_destino = "./../resources/profile_photos/";
 $nome_arquivo = $_POST['nome_arquivo'];
 $extencoes = ['jpg', 'png', 'gif'];
 $extensao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);

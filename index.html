@@ -23,7 +23,7 @@
                 </div>
                 <div class="rightside">
                     <div>
-                        <span id="btnmenu"onclick="troca_main_screen(1)">
+                        <span id="btnmenu"onclick="Troca_Pagina('acess')">
                             <i class='bx bxs-user'></i>
                         </span>
                     </div>
@@ -71,75 +71,6 @@
             </div>
         </div>
     </div>
-    <div class="login_screen">
-        <i class='bx bx-arrow-back' onclick="troca_main_screen(0)"></i>
-        <span onclick="troca_cor_log()" id="display">
-            <div>
-                <h2 class="ativo">Login</h2>
-                <h2>Cadastrar</h2>
-            </div>
-        </span>
-        <section>
-            <div class="login_box ativo" id="login">
-                <h1>Login</h1>
-                <input id="email_l" placeholder="E-mail" type="email">
-                <input id="senha_l" placeholder="Senha" type="password">
-                <button onclick="Processar_Login()">Entrar</button>
-            </div>
-            <div class="sign_box" id="sign">
-                <h1>Cadastro</h1>
-                <input id="nome_s" placeholder="Nome Completo" type="text">
-                <input id="user_s" placeholder="Nome de Usuario" type="text">
-                <input id="email_s" placeholder="E-mail" type="email">
-                <input id="senha_s" placeholder="Senha" type="password" onchange="Checa_Senha(0)">
-                <input id="senhac_s" placeholder="Confirmar senha" type="password" onchange="Checa_Senha(1)"> 
-                <input id="date_s" type="date">
-                <nav>
-                    <h3>Sexo:</h3>
-                    <label>
-                        <input type="radio" value="Masculino" name="opc">Masculino
-                    </label>
-                    <label>
-                        <input type="radio" value="Feminino" name="opc">Feminino
-                    </label>
-                    <label>
-                        <input type="radio" value="Outros" name="opc">Outros
-                    </label>
-                </nav>
-            <!-- Inicio do formulario -->
-              <form method="get" action=".">
-                <input placeholder="CEP" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" />
-                <input name="rua" type="text" id="rua" size="60" placeholder="Rua" readonly/>
-                <input name="bairro" type="text" id="bairro" size="40" placeholder="Bairro" readonly/>
-                <input name="cidade" type="text" id="cidade" size="40" placeholder="Cidade" readonly/>
-                <input name="uf" type="text" id="uf" size="2" placeholder="Estado" readonly/>
-              </form>
-                <!-- <input type="file" accept=".png, .jpg, .jpeg"> -->
-                <button onclick="Processar_Cadastro()">Cadastrar-se</button>
-            </div>
-        </section>
-    </div>
-    <div class="profile_screen">
-        <i class='bx bx-arrow-back' onclick="troca_main_screen(0)"></i>
-        <div id="troca_imagem_screen" class="troca_imagem_screen">
-            <div>
-                <i class='bx bx-arrow-back' onclick="MudarImagem()"></i>
-                <span></span>
-                <input type="file" id="file" name="file">
-            </div>
-        </div>
-        <section>
-            <div class="upper">
-                <figure class="profile_image" onclick="MudarImagem()">
-                    <img src="" height="100%" id="img_profile">
-                </figure>
-                <h1 id="screen_username">João Pedro Garcia Girotto</h1>
-            </div>
-            <div class="bottom">
-                <!-- Colocar as INFOS -->
-            </div>
-        </section>
-    </div>
-    <script src='./scripts/main.js'></script>
+    <script src='main.js'></script>
 </body>
 </html>
