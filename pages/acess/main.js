@@ -146,19 +146,19 @@ async function Query_Cadastrar(json){
     // arummar
 }
 async function Query_Logar(json){
-    const dados = await fetch('../../server/login.php',{
+    const dados = await fetch('http://localhost:3000/login',{
         method: "POST",
         body: JSON.stringify(json)
     });
     resposta = await dados.json();
-    if(resposta.nome === "ERRO"){
-        alert('Senha ou Email Incorretos')
+    // if(resposta.nome === "ERRO"){
+    //     alert('Senha ou Email Incorretos')
 
-    }else{
-        u_infos = resposta
-        alert(`${resposta.nome} Entrou`)
-        volta()
-    }
+    // }else{
+    //     u_infos = resposta
+    //     alert(`${resposta.nome} Entrou`)
+    //     volta()
+    // }
 }
 function troca_cor_log(){
     let kapa = document.getElementById('display').querySelectorAll('h2')
