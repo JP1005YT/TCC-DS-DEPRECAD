@@ -23,15 +23,15 @@ function Troca_Pagina(e){
 // Ex: Processamento de dados e encaminhamento para o banco
 
 async function Query_Alguem_Logado(json){
-    const dados = await fetch('./server/check_user.php',{
+    const dados = await fetch('http://localhost:3333/alguemlogado',{
         method: "POST",
         body: JSON.stringify(json)
     });
-    resposta = await dados.json();
-    if(resposta.nome === "ERRO"){
-    }else{
-        u_infos = resposta
-    }
+    // resposta = await dados.json();
+    // if(resposta.nome === "ERRO"){
+    // }else{
+    //     u_infos = resposta
+    // }
 }
 async function Carregar_Foto(){
     esperar = await Query_Alguem_Logado()

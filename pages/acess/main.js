@@ -115,7 +115,7 @@ function Processar_Cadastro(){
             element.value = ""
         })
 
-        volta()
+        // volta()
       } else {  
         alert('Preencha TODOS os campos')
       }
@@ -135,19 +135,24 @@ function Processar_Login(){
     document.getElementById('senha_l').value = ""
 }
 async function Query_Cadastrar(json){
-    const dados = await fetch('../../server/sign.php',{
+    const dados = await fetch('http://localhost:3333/cadastrar', {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(json)
     });
     resposta = await dados.json();
-    if(resposta.nome){
-        u_name = resposta.nome
-    }
-    // arummar
+    // if(resposta.nome){
+    //     u_name = resposta.nome
+    // }
 }
 async function Query_Logar(json){
-    const dados = await fetch('http://localhost:3000/login',{
+    const dados = await fetch('http://localhost:3333/login', {
         method: "POST",
+        headers: {
+            "Content-Type": "application/json" // Define o cabeçalho para JSON
+        },
         body: JSON.stringify(json)
     });
     resposta = await dados.json();
