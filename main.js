@@ -23,11 +23,12 @@ function Troca_Pagina(e){
 // Ex: Processamento de dados e encaminhamento para o banco
 
 async function Query_Alguem_Logado(json){
-    const dados = await fetch('http://localhost:3333/alguemlogado',{
+    const dados = await fetch('http://localhost:3333/check',{
         method: "POST",
         body: JSON.stringify(json)
     });
-    // resposta = await dados.json();
+    resposta = await dados.json();
+    alert(resposta)
     // if(resposta.nome === "ERRO"){
     // }else{
     //     u_infos = resposta

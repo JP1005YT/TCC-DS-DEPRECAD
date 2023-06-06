@@ -63,6 +63,7 @@ else {
     limpa_formulário_cep();
 }
 };
+
 function Checa_Senha(key){
     let senha_s = document.getElementById('senha_s')
     let senhac_s = document.getElementById('senhac_s')
@@ -156,14 +157,11 @@ async function Query_Logar(json){
         body: JSON.stringify(json)
     });
     resposta = await dados.json();
-    // if(resposta.nome === "ERRO"){
-    //     alert('Senha ou Email Incorretos')
-
-    // }else{
-    //     u_infos = resposta
-    //     alert(`${resposta.nome} Entrou`)
-    //     volta()
-    // }
+    if(resposta.res === false){
+        alert('Senha ou Email Incorretos')
+    }else{
+        // volta()
+    }
 }
 function troca_cor_log(){
     let kapa = document.getElementById('display').querySelectorAll('h2')
