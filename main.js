@@ -32,11 +32,8 @@ async function Query_Alguem_Logado(json){
         }
     });
     resposta = await dados.json();
-    alert(resposta)
-    // if(resposta.nome === "ERRO"){
-    // }else{
-    //     u_infos = resposta
-    // }
+    console.log(resposta)
+    u_infos = resposta
 }
 async function Carregar_Foto(){
     esperar = await Query_Alguem_Logado()

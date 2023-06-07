@@ -162,7 +162,7 @@ async function Query_Logar(json){
     }else{
         localStorage.setItem("token", resposta.token)
         // window.token = dados.token;
-        // volta()
+        volta()
     }
 }
 function troca_cor_log(){
