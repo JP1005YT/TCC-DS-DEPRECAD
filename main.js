@@ -25,7 +25,11 @@ function Troca_Pagina(e){
 async function Query_Alguem_Logado(json){
     const dados = await fetch('http://localhost:3333/check',{
         method: "POST",
-        body: JSON.stringify(json)
+        body: JSON.stringify(json),
+        headers: {
+            teste: "true",
+            "token": localStorage.getItem("token")
+        }
     });
     resposta = await dados.json();
     alert(resposta)

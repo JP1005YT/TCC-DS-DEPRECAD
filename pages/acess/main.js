@@ -160,6 +160,8 @@ async function Query_Logar(json){
     if(resposta.res === false){
         alert('Senha ou Email Incorretos')
     }else{
+        localStorage.setItem("token", resposta.token)
+        // window.token = dados.token;
         // volta()
     }
 }
