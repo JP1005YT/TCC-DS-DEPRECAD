@@ -248,7 +248,6 @@ body{
 .quemSomos{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     background-color: var(--cor2);
     width: 100%;
 }
@@ -260,24 +259,39 @@ body{
     width: 100%;
 }
 
-.quemSomos>.topo>.imagem{
-    width: 200px;
-    height: 200px;
+.quemSomos>.textos>.topo>h1{
+    font-size: 80px;
 }
 
-.quemSomos>.topo>h1{
-    font-size: 60px;
+.textos{
+    display: flex;
+    width: 50%;
 }
 
 .informacoes{
     display: flex;
     flex-wrap: wrap;
-
 }
 
-.informacoes>p{
-    font-size: 30px;
+.informacoes>span{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.informacoes>span>p{
+    font-size: 40px;
+    width: 80%;
     text-align: center;
+}
+
+.text1{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.text2{
+    margin-bottom: 20px;
 }
 
 /* PAGINA DE LOGIN E CADASTRO */

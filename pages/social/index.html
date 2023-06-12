@@ -9,27 +9,37 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+    <div class="post-page" id="post-page">
+        <i class='bx bx-left-arrow-alt' onclick="ToNovoPost()"></i>
+        <div>
+            <input type="text" id="title" placeholder="Titulo do Post">
+        </div>
+    </div>
     <header>
+        <i class='bx bx-arrow-back' onclick="volta()" id="btn"></i>
         <div>
             <input type="text" name="Search">
             <span>
                 <i class='bx bx-search'></i>
             </span>
         </div>
+        <button id="btnright" onclick="ToNovoPost()">
+            <span>Novo Post</span>
+            <i class='bx bx-message-alt-add'></i>
+        </button>
     </header>
     <main>
         <nav>
-            <label>Tops #1</label>
+            <label>Tendências</label>
             <ul>
-                <li>Teste</li>
-                <li>testa</li>
-                <li>eu</li>
-                <li>sou</li>
-                <li>macho</li>
+                <li>#PaoDeMacaco</li>
+                <li>#Linguiçinha</li>
+                <li>#JeanLExposed</li>
+                <li>#PaçocaDeGato</li>
             </ul>
         </nav>
         <section id="dashboard">
-            <h1>O que estão falando?</h1>
+            <h1>Página Inicial</h1>
             <div class="post text">
                 <h2>Titulo do Post</h2><hr>
                 <ul id="hashtags">
@@ -49,9 +59,10 @@
                 <p>Olá eu sou um post-midia</p>
                 <img src="../../resources/profile_photos/0.gif">
             </div>
+            
         </section>
         <nav>
-            <label>Recents</label>
+            <label>Caixa <br> de entrada</label>
             <ul>
                 <li>Maricreusa</li>
                 <li>Jenosvalda</li>

@@ -27,7 +27,6 @@ async function Query_Alguem_Logado(json){
         method: "POST",
         body: JSON.stringify(json),
         headers: {
-            teste: "true",
             "token": localStorage.getItem("token")
         }
     });
@@ -37,21 +36,21 @@ async function Query_Alguem_Logado(json){
 }
 async function Carregar_Foto(){
     esperar = await Query_Alguem_Logado()
-    if(u_infos){
-        nome_arquivo =  u_infos.id
-        const dados = await fetch('server/extencao.php',{
-            method: "POST",
-        });
-        resposta = await dados.json()
-        if(resposta){
-            document.querySelector('.img_profile').setAttribute('src',`resources/profile_photos/${u_infos.id}.${resposta}?cache=${Math.random() * 10}`)
-            document.querySelector('#icon_remove').style.display = 'none'
-        }else{
-            document.querySelector('.img_profile').style.display = 'none'
-        }
-    }else{
+    // if(u_infos){
+    //     nome_arquivo =  u_infos.id
+    //     const dados = await fetch('server/extencao.php',{
+    //         method: "POST",
+    //     });
+    //     resposta = await dados.json()
+    //     if(resposta){
+    //         document.querySelector('.img_profile').setAttribute('src',`resources/profile_photos/${u_infos.id}.${resposta}?cache=${Math.random() * 10}`)
+    //         document.querySelector('#icon_remove').style.display = 'none'
+    //     }else{
+    //         document.querySelector('.img_profile').style.display = 'none'
+    //     }
+    // }else{
         document.querySelector('.img_profile').style.display = 'none'
-    }
+    // }
 }
 
 Carregar_Foto() 
