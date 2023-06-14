@@ -12,7 +12,18 @@
     <div class="post-page" id="post-page">
         <i class='bx bx-left-arrow-alt' onclick="ToNovoPost()"></i>
         <div>
-            <input type="text" id="title" placeholder="Titulo do Post">
+            <input type="text" id="newtitle" placeholder="Titulo do Post">
+            <textarea rows="4" cols="20" id="newcontent"></textarea>
+            <i class='bx bxs-send' style="right: 0;"></i>
+            <i class='bx bxs-tag' style="left: 0;" onclick="ToNovaTag()"></i>
+        </div>
+    </div>
+    <div class="tag-page" id="tag-page">
+        <i class='bx bx-left-arrow-alt' onclick="ToNovaTag()"></i>
+        <div>
+            <input type="text" id="newtag" placeholder="Nova HashTag">
+            <span id="tagsinUsed">Hashtags:</span>
+            <i class='bx bxs-send' style="right: 0;" onclick="NovaTag()"></i>
         </div>
     </div>
     <header>
