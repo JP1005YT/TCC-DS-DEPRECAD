@@ -1,3 +1,4 @@
+let variavelDebug = false
 function volta(){
     window.location.href = `../../`;
 }
@@ -27,9 +28,38 @@ async function LoadTags() {
         method: "POST"
     });
     const resposta = await dados.json();
-    console.log(resposta)
-    document.querySelector("#tagsinUsed").innerHTML = `HashTags:${resposta.num}`
-    
+    let i = 0
+    resposta.tags.forEach(element => {
+        i++
+    });
+    document.querySelector("#tagsinUsed").innerHTML = `HashTags:${i}`
+    RankHashTags(resposta.tags)
+}
+
+function RankHashTags(Hashtags){
+    const RankDiv = document.querySelector("#morehashs")
+    const QuantidadeExibida = 6
+    for (let i = 0; i < QuantidadeExibida; i++) {
+        const li = document.createElement("li")
+        const spanDisplay = document.createElement("span")
+        const spanUses = document.createElement("span")
+        let MaiorUso = 0
+        let MaiorUsoP = 0
+        Hashtags.forEach(function(Hashtag,n){
+            if(Hashtag.uses > MaiorUso){
+                MaiorUso = Hashtag.uses 
+                MaiorUsoP = n
+            }
+        })
+        spanDisplay.innerHTML = `#${Hashtags[MaiorUsoP].display}`
+        spanUses.innerHTML = `@${Hashtags[MaiorUsoP].uses}`
+        li.setAttribute("id","linkli")
+        li.appendChild(spanDisplay)
+        li.appendChild(spanUses)
+        RankDiv.appendChild(li)
+        Hashtags.splice(MaiorUsoP, 1);
+        console.log(MaiorUso)
+    }
 }
 function NovaTag(){
     let newtag = document.querySelector("#newtag")
