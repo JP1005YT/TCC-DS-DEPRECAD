@@ -127,8 +127,6 @@ body{
     width: 95%;
     height: 95%;
     border-radius: 10px;
-    background: rgb(224, 224, 224);
-    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.12);
 }
 .content-menu div{
     display: flex;
@@ -143,9 +141,10 @@ body{
 }
 .content-menu div:hover{
     cursor: pointer;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.7);
 }
 .content-menu i{
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     font-size:40px;
 }
 /* Corpo */

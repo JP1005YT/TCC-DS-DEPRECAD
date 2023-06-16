@@ -113,28 +113,41 @@ header > div{
     background: linear-gradient(var(--base1),var(--base2));
     border-radius: 25px;
 }
-header > div input{
-    width: 80%;
-    height: 80%;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border: none;
-    font-size: 25px;
-}
 header > div span{
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+    border-radius: 25px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    width: 10%;
+    width: 90%;
     height: 80%;
     background: white;
     font-size: 30px;
 }
 header > div span:hover{
-    background: #bababa;
     cursor: pointer;
+}
+header > div span input{
+    padding: 2%;
+    border: none;
+    width: 75%;
+    height: 90%;
+    border-radius: 25px;
+    font-size: 25px;
+}
+header > div span input:focus{
+    outline: none;
+    box-shadow: 0 0 20px var(--base2);
+}
+header > div  > span #btna{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    width: 15%;
+    height:90%;
+}
+header > div  > span #btna:hover{
+    box-shadow: 0 0 20px var(--base2);
 }
 main{
     display: flex;
@@ -177,7 +190,7 @@ main > nav > ul{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    font-size: 22px;
+    font-size: 17px;
     width: 80%;
 }
 main > nav > ul li{
@@ -369,6 +382,7 @@ main #dashboard .post ul{
     border-radius: 25px;
     width: 70%;
     height: 80%;
+    color:black;
     background: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
 }
@@ -391,7 +405,7 @@ main #dashboard .post ul{
     width: 10%;
     height: 70px;
     border-radius: 35px;
-    background: var(--cor2);
+    background: var(--base1);
     color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     margin: 0.7%;
