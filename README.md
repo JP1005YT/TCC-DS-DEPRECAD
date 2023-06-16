@@ -28,4 +28,4 @@ Home,
 > $ git config --global user.email "godlolpro32@gmail.com"
 > $ git config --global user.name "JP1005YT"
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?2C08301ACA07D57BCEC338B83ACE9AAF2271
+https://prod.liveshare.vsengsaas.visualstudio.com/join?2BC118B2A0CDF693AC8E93AE8B77813B7880
