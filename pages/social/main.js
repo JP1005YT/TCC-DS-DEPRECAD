@@ -42,71 +42,97 @@ async function LoadTags() {
     RankHashTags()
 }
 
-function WriteHashsinNewPost(){
-    const HereWriteHashtags = document.querySelector("#HereWriteHashtags")
-    Hashtags.forEach(element =>{
-        const span = document.createElement("span")
-        span.innerHTML = element.display
-        span.addEventListener("click",function(){
-            comparetag = this.innerHTML
-            if(this.classList.value === "ativo"){
-                hashtagstonewpost.forEach(function(hashtag,n){
-                        if(hashtag == comparetag){
-                            console.log(hashtag)
-                                let indice = hashtagstonewpost.indexOf(comparetag);
-                                while(indice >= 0){
-                            
-                                        hashtagstonewpost.splice(indice, 1);
-                            
-                                        indice = hashtagstonewpost.indexOf(comparetag);
-                            
-                                    }
-                                }
-                            })
-                        }else{
-                            hashtagstonewpost.push(comparetag)
-                        }
-                        this.classList.toggle("ativo")
-                        console.log(hashtagstonewpost)
-                    })
-        HereWriteHashtags.appendChild(span)
-    })
-}
+function WriteHashsinNewPost(FilterContent) {
+    let HashtagsHere
+    if(FilterContent === undefined){
+        HashtagsHere = { ...Hashtags }
+    }else{
+        HashtagsHere = { ...FilterContent}
+    }
+    const HereWriteHashtags = document.querySelector("#HereWriteHashtags");
+    
+    HereWriteHashtags.innerHTML = ""
 
-document.querySelector("#filterTags").addEventListener("keyup",()=>{
-    let InputFilter = document.querySelector("#filterTags")
-    console.log(Hashtags)
-    Hashtags.filter(item => item.includes(InputFilter.value))
-})
-
-function RankHashTags(){
-    const RankDiv = document.querySelector("#morehashs")
-    const QuantidadeExibida = 6
-    for (let i = 0; i < QuantidadeExibida; i++) {
-        const li = document.createElement("li")
-        const spanDisplay = document.createElement("span")
-        const spanUses = document.createElement("span")
-        let MaiorUso = 0
-        let MaiorUsoP = 0
-        Hashtags.forEach(function(Hashtag,n){
-            if(Hashtag.uses > MaiorUso){
-                MaiorUso = Hashtag.uses 
-                MaiorUsoP = n
+    for (let key in HashtagsHere) {
+      const element = HashtagsHere[key];
+      const span = document.createElement("span");
+      span.innerHTML = element.display;
+      
+      span.addEventListener("click", function() {
+        comparetag = this.innerHTML;
+        
+        if (this.classList.value === "ativo") {
+          hashtagstonewpost.forEach(function(hashtag, n) {
+            if (hashtag == comparetag) {
+              console.log(hashtag);
+              let indice = hashtagstonewpost.indexOf(comparetag);
+              
+              while (indice >= 0) {
+                hashtagstonewpost.splice(indice, 1);
+                indice = hashtagstonewpost.indexOf(comparetag);
+              }
             }
-        })
-        spanDisplay.innerHTML = `#${Hashtags[MaiorUsoP].display}`
-        spanUses.innerHTML = `@${Hashtags[MaiorUsoP].uses}`
-        li.setAttribute("id",Hashtags[MaiorUsoP].display)
-        li.addEventListener("click",function(li){
-            window.location.href = `http://localhost/TCC-DS/pages/social?tag=${this.id}`
-        })
-        li.appendChild(spanDisplay)
-        li.appendChild(spanUses)
-        RankDiv.appendChild(li)
-        Hashtags.splice(MaiorUsoP, 1);
-        console.log(MaiorUso)
+          });
+        } else {
+          hashtagstonewpost.push(comparetag);
+        }
+        
+        this.classList.toggle("ativo");
+        console.log(hashtagstonewpost);
+      });
+      
+      HereWriteHashtags.appendChild(span);
     }
 }
+
+document.querySelector("#filterTags").addEventListener("keyup", () => {
+    let InputFilter = document.querySelector("#filterTags").value.toLowerCase();
+  
+    let filteredHashtags = Hashtags.filter(item =>
+      item.display.toLowerCase().includes(InputFilter)
+    );
+  
+    console.log(filteredHashtags);
+  
+    WriteHashsinNewPost(filteredHashtags);
+});
+
+function RankHashTags() {
+    let HashtagsHere2 = { ...Hashtags };
+    const RankDiv = document.querySelector("#morehashs");
+    const QuantidadeExibida = 6;
+    
+    for (let i = 0; i < QuantidadeExibida; i++) {
+      const li = document.createElement("li");
+      const spanDisplay = document.createElement("span");
+      const spanUses = document.createElement("span");
+      let MaiorUso = 0;
+      let MaiorUsoP = 0;
+      
+      for (let key in HashtagsHere2) {
+        const Hashtag = HashtagsHere2[key];
+        
+        if (Hashtag.uses > MaiorUso) {
+          MaiorUso = Hashtag.uses;
+          MaiorUsoP = key;
+        }
+      }
+      
+      spanDisplay.innerHTML = `#${HashtagsHere2[MaiorUsoP].display}`;
+      spanUses.innerHTML = `@${HashtagsHere2[MaiorUsoP].uses}`;
+      li.setAttribute("id", HashtagsHere2[MaiorUsoP].display);
+      
+      li.addEventListener("click", function() {
+        window.location.href = `http://localhost/TCC-DS/pages/social?tag=${this.id}`;
+      });
+      
+      li.appendChild(spanDisplay);
+      li.appendChild(spanUses);
+      RankDiv.appendChild(li);
+      delete HashtagsHere2[MaiorUsoP];
+      console.log(MaiorUso);
+    }
+}  
 
 function NovaTag(){
     let newtag = document.querySelector("#newtag")
