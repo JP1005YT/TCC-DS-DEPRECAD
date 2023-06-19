@@ -307,6 +307,25 @@ main #dashboard .post ul{
     text-align:start;
     height: 60%;
 }
+.post-page.ativo div nav{
+    margin-top: 2%;
+    display: flex;
+    width: 100%;
+    overflow:auto;
+}
+.post-page.ativo div nav span{
+    margin: 1%;
+    padding: 1%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+.post-page.ativo div nav span.ativo{
+    background: var(--base1);
+}
+.post-page.ativo div nav span:hover{
+    cursor: pointer;
+    background: var(--base1);
+}
 .post-page.ativo div input:focus,.post-page.ativo div textarea:focus {
     outline: none;
 }

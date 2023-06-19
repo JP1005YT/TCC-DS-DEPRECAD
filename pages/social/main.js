@@ -1,4 +1,6 @@
 let variavelDebug = false
+let hashtagstonewpost = []
+
 function volta(){
     window.location.href = `../../`;
 }
@@ -33,10 +35,25 @@ async function LoadTags() {
         i++
     });
     document.querySelector("#tagsinUsed").innerHTML = `HashTags:${i}`
-    RankHashTags(resposta.tags)
+    const ALLtags = resposta.tags
+    WriteHashsinNewPost(resposta.tags)
+    RankHashTags(ALLtags)
 }
 
-function RankHashTags(Hashtags){
+function WriteHashsinNewPost(Hashtags){
+    const HereWriteHashtags = document.querySelector("#HereWriteHashtags")
+    Hashtags.forEach(element =>{
+        const span = document.createElement("span")
+        span.innerHTML = element.display
+        span.addEventListener("click",function(){
+            this.classList.toggle("ativo")
+        })
+        HereWriteHashtags.appendChild(span)
+    })
+}
+
+function RankHashTags(Tags){
+    let Hashtags = Tags
     const RankDiv = document.querySelector("#morehashs")
     const QuantidadeExibida = 6
     for (let i = 0; i < QuantidadeExibida; i++) {
@@ -53,7 +70,10 @@ function RankHashTags(Hashtags){
         })
         spanDisplay.innerHTML = `#${Hashtags[MaiorUsoP].display}`
         spanUses.innerHTML = `@${Hashtags[MaiorUsoP].uses}`
-        li.setAttribute("id","linkli")
+        li.setAttribute("id",Hashtags[MaiorUsoP].display)
+        li.addEventListener("click",function(li){
+            window.location.href = `http://localhost/TCC-DS/pages/social?tag=${this.id}`
+        })
         li.appendChild(spanDisplay)
         li.appendChild(spanUses)
         RankDiv.appendChild(li)
@@ -61,6 +81,7 @@ function RankHashTags(Hashtags){
         console.log(MaiorUso)
     }
 }
+
 function NovaTag(){
     let newtag = document.querySelector("#newtag")
     let obj = {
