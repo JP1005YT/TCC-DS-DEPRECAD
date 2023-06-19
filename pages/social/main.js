@@ -1,5 +1,6 @@
 let variavelDebug = false
 let hashtagstonewpost = []
+let comparetag
 
 function volta(){
     window.location.href = `../../`;
@@ -25,6 +26,7 @@ function ToNovaTag(){
     document.querySelector("#tag-page").classList.toggle("ativo")
 }
 
+let Hashtags
 async function LoadTags() {
     const dados = await fetch('http://localhost:3333/tags', {
         method: "POST"
@@ -35,25 +37,49 @@ async function LoadTags() {
         i++
     });
     document.querySelector("#tagsinUsed").innerHTML = `HashTags:${i}`
-    const ALLtags = resposta.tags
-    WriteHashsinNewPost(resposta.tags)
-    RankHashTags(ALLtags)
+    Hashtags = resposta.tags
+    WriteHashsinNewPost()
+    RankHashTags()
 }
 
-function WriteHashsinNewPost(Hashtags){
+function WriteHashsinNewPost(){
     const HereWriteHashtags = document.querySelector("#HereWriteHashtags")
     Hashtags.forEach(element =>{
         const span = document.createElement("span")
         span.innerHTML = element.display
         span.addEventListener("click",function(){
-            this.classList.toggle("ativo")
-        })
+            comparetag = this.innerHTML
+            if(this.classList.value === "ativo"){
+                hashtagstonewpost.forEach(function(hashtag,n){
+                        if(hashtag == comparetag){
+                            console.log(hashtag)
+                                let indice = hashtagstonewpost.indexOf(comparetag);
+                                while(indice >= 0){
+                            
+                                        hashtagstonewpost.splice(indice, 1);
+                            
+                                        indice = hashtagstonewpost.indexOf(comparetag);
+                            
+                                    }
+                                }
+                            })
+                        }else{
+                            hashtagstonewpost.push(comparetag)
+                        }
+                        this.classList.toggle("ativo")
+                        console.log(hashtagstonewpost)
+                    })
         HereWriteHashtags.appendChild(span)
     })
 }
 
-function RankHashTags(Tags){
-    let Hashtags = Tags
+document.querySelector("#filterTags").addEventListener("keyup",()=>{
+    let InputFilter = document.querySelector("#filterTags")
+    console.log(Hashtags)
+    Hashtags.filter(item => item.includes(InputFilter.value))
+})
+
+function RankHashTags(){
     const RankDiv = document.querySelector("#morehashs")
     const QuantidadeExibida = 6
     for (let i = 0; i < QuantidadeExibida; i++) {

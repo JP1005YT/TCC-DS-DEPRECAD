@@ -168,9 +168,9 @@ main > nav{
     width: 15%;
     min-height:calc(100vh - 80px);
     box-shadow: 0 -20px 20px rgba(0, 0, 0, 0.3);
+    font-size: 0.9rem;
 }
 main > nav > label{
-    font-size: 35px;
     margin: 10%;
 }
 main > nav > label::after{
@@ -190,7 +190,6 @@ main > nav > ul{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    font-size: 17px;
     width: 80%;
 }
 main > nav > ul li{
@@ -287,13 +286,14 @@ main #dashboard .post ul{
     border-radius: 25px;
     width: 70%;
     height: 80%;
+    min-height: 550px;
     background: #fff;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
 }
 .post-page.ativo div #newtitle{
     width: 95%;
     font-size: 35px;
-    padding: 20px;
+    padding-left: 20px;
     border: none;
     border-bottom: 1px solid black;
 }
