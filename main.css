@@ -251,46 +251,92 @@ body{
     width: 100%;
 }
 
-.quemSomos > .topo{
+.textos{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width: 100%;
+    height: auto;
 }
 
-.quemSomos>.textos>.topo>h1{
+.textos>.topo{
+    display: flex;
+    justify-content: center;
+    background-color: var(--cor1);
+    border-radius: 0px 0px 25px 25px;
+    width: 50%;
     font-size: 80px;
 }
 
-.textos{
+.informaçoes{
     display: flex;
-    width: 50%;
+    flex-direction: row;
+    padding-top: 10%;
+    padding-bottom: 2%;
 }
 
-.informacoes{
+.informaçoes>.text1{
     display: flex;
-    flex-wrap: wrap;
+    text-align: center;
+    flex-direction: column;
+    background-color: var(--cor1);
+    box-shadow: 1px 1px 100px white;
+    font-size: 180%;
+    border-radius: 0px 5% 65% 0px;
+    width: 48.8%;
+    height: 55%;
+    padding-left: 15px;
 }
 
-.informacoes>span{
+.informaçoes>.text2{
     display: flex;
+    text-align: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--cor1);
+    box-shadow: 0 0 100px white;
+    font-size: 180%;
+    border-radius: 65% 0px 0px 5%;
+    width: 50%;
+    margin-top: 25%;
+}
+
+.textos>.informaçoes>.text1>.image{
+    display: flex;
+    width: 75%;
+    height: 75%;
+}
+
+.textos>.informaçoes>.text2>.image{
+    display: flex;
+    width: 75%;
+    height: 75%;
+    padding-left: 2%;
+}
+
+.sobreplat>.imageplat{
+    margin-top: -5%;
     width: 100%;
 }
 
-.informacoes>span>p{
-    font-size: 40px;
-    width: 80%;
-    text-align: center;
+.receitas{
+    display: flex;
+    background-image: url(resources/assets/comidaSaudavel.png);
+    width: 100%;
+    height: auto;
+    margin-top: -5%;
 }
 
-.text1{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.text2{
-    margin-bottom: 20px;
+.receitas>.textos>.topo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor2);
+    width: 50%;
+    height: 25%;
+    margin-top: 25%;
 }
 
 /* PAGINA DE LOGIN E CADASTRO */
