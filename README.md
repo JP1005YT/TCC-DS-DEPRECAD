@@ -16,14 +16,11 @@ Home,
     A --> F(Perfil)
     A --> G(Social)
 ```
-## A fazer
+## Anotações JP
     > **IMPORTANTE** Adicionar Peso,Altura no banco
-    > Foto_de_Perfil DEBUG
+    > Foto_de_Perfil
     > Checagem de Usuario (Existente)
-    > Login
-    > CRUD
-    > Perfil
-    > Home
+    > Enter para formularios
     
 > $ git config --global user.email "godlolpro32@gmail.com"
 > $ git config --global user.name "JP1005YT"

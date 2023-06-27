@@ -51,9 +51,15 @@ function WriteHashsinNewPost(FilterContent) {
     }
     const HereWriteHashtags = document.querySelector("#HereWriteHashtags");
     
-    HereWriteHashtags.innerHTML = ""
+    let Apagar = HereWriteHashtags.querySelectorAll('*:not(.ativo)');
+
+    Apagar.forEach(elemento => {
+      elemento.remove();
+    });
 
     for (let key in HashtagsHere) {
+      
+      console.log(HashtagsHere[key])
       const element = HashtagsHere[key];
       const span = document.createElement("span");
       span.innerHTML = element.display;
@@ -64,7 +70,6 @@ function WriteHashsinNewPost(FilterContent) {
         if (this.classList.value === "ativo") {
           hashtagstonewpost.forEach(function(hashtag, n) {
             if (hashtag == comparetag) {
-              console.log(hashtag);
               let indice = hashtagstonewpost.indexOf(comparetag);
               
               while (indice >= 0) {
@@ -76,9 +81,7 @@ function WriteHashsinNewPost(FilterContent) {
         } else {
           hashtagstonewpost.push(comparetag);
         }
-        
         this.classList.toggle("ativo");
-        console.log(hashtagstonewpost);
       });
       
       HereWriteHashtags.appendChild(span);
@@ -91,8 +94,6 @@ document.querySelector("#filterTags").addEventListener("keyup", () => {
     let filteredHashtags = Hashtags.filter(item =>
       item.display.toLowerCase().includes(InputFilter)
     );
-  
-    console.log(filteredHashtags);
   
     WriteHashsinNewPost(filteredHashtags);
 });
@@ -130,7 +131,6 @@ function RankHashTags() {
       li.appendChild(spanUses);
       RankDiv.appendChild(li);
       delete HashtagsHere2[MaiorUsoP];
-      console.log(MaiorUso);
     }
 }  
 
@@ -156,7 +156,9 @@ async function QueryNovaTag(tag){
 }
 
 function NovoPost(){
-    
+    let Post = {
+      
+    }
 }
 
 LoadTags()

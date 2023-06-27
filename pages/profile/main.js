@@ -26,28 +26,19 @@ const allowedExtensions = ['jpg', 'png', 'gif'];
 async function Query_Image(event) {
     const arquivo = event.target.files[0];
     const formData = new FormData();
+    formData.append('image', arquivo);
+    formData.append('id', u_infos.id);
 
-    const fileExtension = arquivo.name.split('.').pop().toLowerCase();
-    if (!allowedExtensions.includes(fileExtension)) {
-        alert('Extensão de arquivo não permitida');
-        return;
-    }
-
-    formData.append('arquivo', arquivo);
-    formData.append('nome_arquivo', nome_arquivo);
-
-    const dados = await fetch('../../server/guardarimagem.php', {
-        method: "POST",
-        body: formData
-    });
-
-    const resposta = await dados.json();
-    console.log(resposta);
-    if(resposta){
-        let img = document.querySelector('#img_profile')
-        img.setAttribute('src',`../../resources/profile_photos/${nome_arquivo}.${resposta}?cache=${Math.random() * 10}`)
-    }
-    MudarImagem()
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3333/upimage');
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+        console.log('Arquivo enviado com sucesso!');
+        } else {
+        console.error('Ocorreu um erro ao enviar o arquivo.');
+        }
+    };
+    xhr.send(formData);
 }
 function MudarImagem(){
     document.querySelector('#troca_imagem_screen').classList.toggle('ativo') 
@@ -65,9 +56,9 @@ async function Sair(){
     volta()
 }
 async function ConstruirProfile(){
-    // esperar = await Query_Alguem_Logado()
-    // let user_profile= document.querySelector("#screen_username")
-    // user_profile.innerHTML = u_infos['nome']
+    esperar = await Query_Alguem_Logado()
+    let user_profile= document.querySelector("#screen_username")
+    user_profile.innerHTML = u_infos['nome']
     // nome_arquivo =  u_infos.id
     // const dados = await fetch('../../server/extencao.php',{
     //     method: "POST",

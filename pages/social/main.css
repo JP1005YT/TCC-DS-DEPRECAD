@@ -293,7 +293,7 @@ main #dashboard .post ul{
 .post-page.ativo div #newtitle{
     width: 95%;
     font-size: 35px;
-    padding-left: 20px;
+    padding: 20px;
     border: none;
     border-bottom: 1px solid black;
 }
