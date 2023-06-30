@@ -1,6 +1,7 @@
 let variavelDebug = false
 let hashtagstonewpost = []
 let comparetag
+let u_infos
 
 function volta(){
     window.location.href = `../../`;
@@ -42,6 +43,71 @@ async function LoadTags() {
     RankHashTags()
 }
 
+async function LoadPosts(){
+    const dados = await fetch('http://localhost:3333/buscarpost', {
+        method: "POST"
+    });
+    const resposta = await dados.json();
+    console.log(resposta.posts)
+    resposta.posts.forEach(async post => {
+      // Checar se tem imagems
+      console.log(post)
+      const dados = await fetch('http://localhost:3333/checkpost', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({"post": post.Post_ID})
+      });
+      const temImagem = await dados.json();
+      if(temImagem){
+        let div_post = document.createElement("post")
+        div_post.setAttribute("class","post")
+        let span_quempostou = document.createElement("span")
+        let title_post = document.createElement("h2")
+        let ul_post = document.createElement("ul")
+        let p = document.createElement ("p")
+        title_post.innerHTML = post.title
+        span_quempostou.innerHTML = post.User_ID
+        p.innerHTML = post.content
+        post.hashtags.forEach(hashtag =>{
+          let li = document.createElement("li")
+          li.innerHTML = `#${hashtag}`
+          ul_post.appendChild(li)
+        })
+        div_post.appendChild(title_post)
+        div_post.appendChild(span_quempostou)
+        div_post.appendChild(document.createElement("hr"))
+        div_post.appendChild(ul_post)
+        div_post.appendChild(p)
+        temImagem.forEach(img => {
+          let img_dom = document.createElement("img")
+          img_dom.setAttribute("src",`http://localhost:3333/posts_images/${post.Post_ID}/${img}`)
+          div_post.appendChild(img_dom)
+        })
+        document.querySelector('#dashboard').appendChild(div_post)
+      }else{
+        let div_post = document.createElement("post")
+        div_post.setAttribute("class","post")
+        let title_post = document.createElement("h2")
+        let ul_post = document.createElement("ul")
+        let p = document.createElement ("p")
+        title_post.innerHTML = post.title
+        p.innerHTML = post.content
+        post.hashtags.forEach(hashtag =>{
+          let li = document.createElement("li")
+          li.innerHTML = `#${hashtag}`
+          ul_post.appendChild(li)
+        })
+        div_post.appendChild(title_post)
+        div_post.appendChild(document.createElement("hr"))
+        div_post.appendChild(ul_post)
+        div_post.appendChild(p)
+        document.querySelector('#dashboard').appendChild(div_post)
+      }
+    })
+}
+
 function WriteHashsinNewPost(FilterContent) {
     let HashtagsHere
     if(FilterContent === undefined){
@@ -58,8 +124,16 @@ function WriteHashsinNewPost(FilterContent) {
     });
 
     for (let key in HashtagsHere) {
-      
-      console.log(HashtagsHere[key])
+      let hashtag = HashtagsHere[key].display;
+      let index = hashtagstonewpost.indexOf(hashtag);
+    
+      if (index !== -1) {
+        delete HashtagsHere[key];
+      }
+    }
+    
+    for (let key in HashtagsHere) {
+
       const element = HashtagsHere[key];
       const span = document.createElement("span");
       span.innerHTML = element.display;
@@ -83,8 +157,8 @@ function WriteHashsinNewPost(FilterContent) {
         }
         this.classList.toggle("ativo");
       });
-      
       HereWriteHashtags.appendChild(span);
+      
     }
 }
 
@@ -155,11 +229,49 @@ async function QueryNovaTag(tag){
     LoadTags()
 }
 
-function NovoPost(){
-    let Post = {
-      
+function NovoPost() {
+  let Post = {
+    title: document.querySelector("#newtitle").value,
+    content: document.querySelector("#newcontent").value,
+    hashtags: hashtagstonewpost
+  };
+
+  const formData = new FormData();
+  const imagesInput = document.querySelector("#imagestonewpost");
+
+  for (let i = 0; i < imagesInput.files.length; i++) {
+    formData.append("images", imagesInput.files[i]);
+  }
+
+  formData.append("post", JSON.stringify(Post));
+  formData.append("user_id",u_infos.nome)
+
+  const xhr = new XMLHttpRequest();
+  let id = makeid(10)
+  xhr.open("POST", `http://localhost:3333/newpost/${id}`);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      console.log("Arquivo enviado com sucesso!");
+      ConstruirProfile();
+    } else {
+      console.error("Ocorreu um erro ao enviar o arquivo.");
     }
+  };
+  xhr.send(formData);
+}
+
+function makeid(length) {
+  let result = '';
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+  }
+  return result;
 }
 
 LoadTags()
+LoadPosts()
 Query_Alguem_Logado()

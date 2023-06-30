@@ -11,14 +11,26 @@
 <body>
     <div class="post-page" id="post-page">
         <i class='bx bx-left-arrow-alt' onclick="ToNovoPost()"></i>
-        <div>
-            <input type="text" id="newtitle" placeholder="Titulo do Post">
-            <textarea rows="4" cols="20" id="newcontent"></textarea><br>
-            <input type="text" id="filterTags">
-            <nav id="HereWriteHashtags">
-            </nav>
-            <i class='bx bxs-send' style="right: 0;" onclick="NovoPost()"></i>
-            <i class='bx bxs-tag' style="left: 0;" onclick="ToNovaTag()"></i>
+        <div class="screen">
+            <section>
+                <input type="text" id="newtitle" placeholder="Titulo do Post">
+                <textarea rows="4" cols="20" id="newcontent"></textarea>
+            </section>
+            <div>
+                <section>
+                    <span onclick="ToNovaTag()"> Nova Hashtag</span>
+                    <label>
+                        Filtrar:
+                        <input type="text" id="filterTags">
+                    </label>
+                    <nav id="HereWriteHashtags"></nav>
+                </section>
+                <section>
+                    <span>Selecionar Imagens:</span>
+                    <input type="file" multiple id="imagestonewpost">
+                </section>
+            </div>
+            <label onclick="NovoPost()">Enviar</label>
         </div>
     </div>
     <div class="tag-page" id="tag-page">
@@ -49,26 +61,6 @@
         </nav>
         <section id="dashboard">
             <h1>Página Inicial</h1>
-            <div class="post text">
-                <h2>Titulo do Post</h2><hr>
-                <ul id="hashtags">
-                    <li>#Dev</li>
-                    <li>#SouMelhor</li>
-                    <li>#HakunaMatata2</li>
-                </ul>
-                <p>Olá eu sou um post-text</p>
-            </div>
-            <div class="post midia">
-                <h2>Titulo do Post</h2><hr>
-                <ul id="hashtags">
-                    <li>#OMG</li>
-                    <li>#MeuDeus</li>
-                    <li>#HatsuneMiku</li>
-                </ul>
-                <p>Olá eu sou um post-midia</p>
-                <img src="../../resources/profile_photos/0.gif">
-            </div>
-            
         </section>
         <nav>
             <label>Caixa <br> de entrada</label>

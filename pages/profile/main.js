@@ -33,7 +33,8 @@ async function Query_Image(event) {
     xhr.open('POST', 'http://localhost:3333/upimage');
     xhr.onload = function () {
         if (xhr.status === 200) {
-        console.log('Arquivo enviado com sucesso!');
+            console.log('Arquivo enviado com sucesso!');
+            ConstruirProfile()
         } else {
         console.error('Ocorreu um erro ao enviar o arquivo.');
         }
@@ -59,16 +60,16 @@ async function ConstruirProfile(){
     esperar = await Query_Alguem_Logado()
     let user_profile= document.querySelector("#screen_username")
     user_profile.innerHTML = u_infos['nome']
-    // nome_arquivo =  u_infos.id
-    // const dados = await fetch('../../server/extencao.php',{
-    //     method: "POST",
-    // });
-    // resposta = await dados.json()
-    // if(resposta){
-    //     document.getElementById('img_profile').setAttribute('src',`../../resources/profile_photos/${u_infos.id}.${resposta}?cache=${Math.random() * 10}`)
-    // }else{
-    //     document.getElementById('img_profile').setAttribute('src',`../../resources/profile_photos/default.png`)
-    // }
+    if(u_infos.profile_photo){
+        document.getElementById('img_profile').setAttribute('src', `http://localhost:3333/profile_images/${u_infos.profile_photo}`);
+    }else{
+        document.getElementById('img_profile').setAttribute('src',`../../resources/profile_photos/default.png`)
+    }
+    document.querySelector("#p_user").innerHTML = u_infos.user
+    document.querySelector("#p_email").innerHTML = u_infos.email
+    let dn = u_infos.data.split("-")
+    document.querySelector("#p_datanasc").innerHTML = `${dn[2]}/${dn[1]}/${dn[0]}`
+    document.querySelector("#p_sexo").innerHTML = u_infos.sexo
 }
 async function enviarArquivo() {
     const arquivo = document.querySelector('input[type="file"]').files[0];

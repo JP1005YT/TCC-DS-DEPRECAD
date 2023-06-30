@@ -254,6 +254,9 @@ main #dashboard .post ul{
     background: #0000008b;
     backdrop-filter: blur(5px);
 }
+/* .post-page.ativo *{
+    border: 1px solid black;
+} */
 .post-page.ativo > i{
     transition: 200ms;
     z-index: 99;
@@ -277,82 +280,97 @@ main #dashboard .post ul{
     cursor: pointer;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
 }
-.post-page.ativo div{
+.post-page.ativo .screen{
     position: relative;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 50px;
-    border-radius: 25px;
     width: 70%;
     height: 80%;
-    min-height: 550px;
+    border-radius: 25px;
     background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
 }
-.post-page.ativo div #newtitle{
-    width: 95%;
-    font-size: 35px;
-    padding: 20px;
-    border: none;
-    border-bottom: 1px solid black;
-}
-.post-page.ativo div #newcontent{
-    resize: none;
-    padding: 1%;
-    font-size: 20px;
-    border-top: none;
-    width: 90%;
-    height: 80%;
-    text-align:start;
-    height: 60%;
-}
-.post-page.ativo div nav{
-    margin-top: 2%;
+.post-page.ativo .screen > section, .post-page.ativo .screen > div{
     display: flex;
-    width: 100%;
-    overflow:auto;
+    padding: 2%;
+    width: 50%;
+    height: 100%;
 }
-.post-page.ativo div nav span{
-    margin: 1%;
-    padding: 1%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    border-radius: 15px;
+.post-page.ativo .screen > section{
+    flex-direction: column;
 }
-.post-page.ativo div nav span.ativo{
-    background: var(--base1);
-}
-.post-page.ativo div nav span:hover{
-    cursor: pointer;
-    background: var(--base1);
-}
-.post-page.ativo div input:focus,.post-page.ativo div textarea:focus {
-    outline: none;
-}
-.post-page.ativo div > i{
-    transition: 200ms;
-    z-index: 99;
-    bottom: 0;
-    position: absolute;
+.post-page.ativo .screen > label{
+    font-size: 25px;
+    border-radius: 25px;
+    padding: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 45px;
-    width: 10%;
-    height: 70px;
-    border-radius: 35px;
-    background: var(--base1);
-    color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    margin: 0.7%;
-    border: none;
-}
-.post-page.ativo div > i:hover{
-    font-size: 55px;
+    margin: 2%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: rgb(40, 170, 98);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+} 
+.post-page.ativo .screen > label:hover{
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3) inset;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) inset;
 }
-
+.post-page.ativo .screen > section input{
+    width: 100%;
+    padding: 1%;
+    font-size: 35px;
+}
+.post-page.ativo .screen > section textarea{
+    width: 100%;
+    resize: none;
+    height: 90%;
+    font-size: 25px;
+}
+.post-page.ativo .screen > div > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    width: 50%;
+}
+.post-page.ativo .screen > div > section span{
+    text-align: center;
+    width: 80%;
+    padding: 1%;
+    margin: 5%;
+    background: rgb(40, 170, 98);
+    border-radius: 10px;
+}
+.post-page.ativo .screen > div section label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+.post-page.ativo .screen > div section label input{
+    padding: 2%;
+    font-size: 15px;
+}
+.post-page.ativo .screen > div > section nav{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+    padding: 2%;
+    overflow-y: scroll;
+}
+.post-page.ativo .screen > div > section nav span{
+    border-radius: 15px;
+    font-size: 20px;
+    margin-top: 10%;
+}
+.post-page.ativo .screen > div > section nav span:hover{
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2) inset;
+}
+.post-page.ativo .screen > div > section nav span.ativo{
+    background: linear-gradient(80deg,rgb(40, 170, 98),rgb(5, 155, 165));
+}
 /* Pagina TAGS */
 
 .tag-page{
